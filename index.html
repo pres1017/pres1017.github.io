@@ -1,1 +1,92 @@
-Hello World
+<html>
+
+<!-- HEAD section ............................................................................ -->
+<head>
+  <title> Preston Malaer Index Test Page </title>
+
+  <link rel="stylesheet" href="style.css">
+  
+
+</head>
+
+
+<script>
+    function highlight(){ // highlight function used with search function
+        let pageName = window.location.href;
+        if(pageName.match(/highlight/)){
+            let wordToHighlight = pageName.match(/(?<=%).*(?=%)/)[0]; // scans URL to find designated word to highlight
+            let regHighlight = new RegExp("(" + wordToHighlight + ")(?![^<]*>|[^<>]*<//)", 'g'); // avoids words not in HTML tags
+            console.log(regHighlight);
+            let newBody = document.getElementById("body").innerHTML;
+            newBody = newBody.replaceAll(regHighlight, "<span class=toHighlight style=background:yellow>" + wordToHighlight + "</span>"); 
+            console.log(newBody);
+            document.getElementById("body").innerHTML = newBody;
+        }
+    }
+</script>
+
+<!-- BODY section ............................................................................. -->
+<body class="indexBody" id="body" onload="highlight()">
+<div id="nav">
+<span class="onPage">HOME</span> <a href="portfolio.html">PORTFOLIO</a>
+</div>
+<div id="background">
+
+<div id="header">
+<span class = "intro">Hello! Thank you for visiting the website of</span>
+<br>
+<span class = "intro" id="name"><i>PRESTON MALAER</i></span>
+<br>
+<span class = "intro">Texas A&M Computer Science Major</span>
+<br>
+<span class = "intro">Class of 2023</span>
+</div>
+
+<br>
+<br>
+<br>
+<br>
+<div id="descriptionOfMe">
+<img src="professional.jpg" alt="pictureOfMe" id="me">
+<div id="myprofile">
+    Thank you for visiting my website!
+    <br>
+    <br>
+    My name is Preston Malaer, and I am a third-year at Texas A&M. My entire life, I have been fascinated
+    by computers and code; pursuing a degree in computer science allows me to immerse myself in those passions
+    while giving me the opportunity to make software that can impact people. 
+    <br>
+    <br>
+    While my main fields of interest are software development, cybersecurity, and data science, I love all things
+    computer science, and any project that lets me work with computers excites me. My other hobbies include 3D
+    printing and mini-figure painting. 
+    <br>
+    <br>
+    I was born and raised in Houston, Texas, and I currently reside in College Station for my studies.  
+</div>
+</div>
+<br>
+<br>
+<br>
+</div>
+</body>
+<footer id="homeFoot">
+    <table>
+        <tr>
+            <th><span class="tableData">Links</span></th>
+            <th><span class="tableData">Contact Information</span></th>
+        </tr>
+        <tr>
+            <td><a href="https://github.com/pres1017"><img src="github.png" alt="GitHub" class="footImg"></a></td>
+            <td><span class="tableData">pres1017@gmail.com</span></td>
+        </tr>
+        <tr>
+            <td><a href="https://www.linkedin.com/in/preston-malaer-17010b191"><img src="linkedin.png" alt=LinkedIn class="footImg"></a></td>
+            <td><span class="tableData">713-295-1677</span></td>
+        </tr>
+    </table>
+</footer>
+<br>
+<span id="copyright">© All Rights Reserved Preston Malaer 2021</span>
+</html>
+

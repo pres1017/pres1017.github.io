@@ -1,0 +1,117 @@
+<html>
+
+<head>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<script>
+    function highlight(){ // highlight function used with search function
+        let pageName = window.location.href;
+        if(pageName.match(/highlight/)){
+            let wordToHighlight = pageName.match(/(?<=%).*(?=%)/)[0]; // scans URL to find designated word to highlight
+            let regHighlight = new RegExp("(" + wordToHighlight + ")(?![^<]*>|[^<>]*<//)", 'g'); // avoids words not in HTML tags
+            console.log(regHighlight);
+            let newBody = document.getElementById("body").innerHTML;
+            newBody = newBody.replaceAll(regHighlight, "<span class=toHighlight style=background:yellow>" + wordToHighlight + "</span>"); 
+            console.log(newBody);
+            document.getElementById("body").innerHTML = newBody;
+        }
+    }
+</script>
+
+<body id="body" onload="highlight()">
+
+    <div id="portBody">
+        <div id="nav">
+            <a href="index.html" class="onPage">HOME</a> <span>PORTFOLIO</span>
+        </div>
+
+
+        <h1> PORTFOLIO </h1>
+
+        <div class="projectShow" id="project1">
+            <h3> Skip List </h3>
+            <section class="video">
+                <iframe width="960" height="540" src="https://www.youtube.com/embed/zwFo18bHmro">
+                </iframe>
+            </section>
+            <p class="projectDesc" id="left">
+                This memory-secure skip-list data structure combines the speed of a binary search tree with the conveinience of a linked-list. Developed in C++, the skip list uses multiple "layers" to traverse the list
+                in an average O(log(n)) time. 
+                <br>
+                <br>
+                This project was completed over three days in May 2021. It was developed as a part of coursework.
+            </p>
+            <a href="https://github.com/pres1017/SkipList"><img src="github.png" alt="GitHub" class="gitLink"></a>
+        </div>
+
+        <br>
+
+        <div class="projectShow" id="project2">
+            <h3> Keylogger </h3>
+            <section class="video">
+                <iframe width="960" height="540" src="https://www.youtube.com/embed/pEeG_9UZEhg">
+                </iframe>
+            </section>
+            <p class="projectDesc" id="right">
+                    This simple keylogger, when running in the background, records a user's keypresses and saves them to a text file. 
+                    <br>
+                    <br>
+                    This project was developed in an afternoon in July 2021. I developed it to experience new technologies and practice my coding abilities. 
+            </p>
+            <br>
+            <a href="https://github.com/pres1017/keylogger"><img src="github.png" alt="GitHub" class="gitLink"></a>
+        </div>
+
+        <br>
+
+        <div class="projectShow" id="project3">
+            <h3> SenateBot, an Encryption Discord Bot </h3>
+            <section class="video">
+                <iframe width="960" height="540" src="https://www.youtube.com/embed/RnSXBj9ll5A">
+                </iframe>
+            </section>
+            <p class="projectDesc" id="left">
+                This bot, developed for use on Discord servers, takes in a user's message and performs a simple Caesar-cypher encryption and decryption on it. It also allows users
+                to translate their text into morse code. 
+                <br>
+                <br>
+                Developed with a group as a part of HowdyHack, a hackathon that took place in September 2020.
+            </p>
+
+            <a href="https://github.com/pres1017/SenateBot"><img src="github.png" alt="GitHub" class="gitLink"></a>
+        </div>
+        <br>
+        <div class="projectShow">
+        <p class="projectDesc" id="finalExplanation">
+            Each of these projects - including this website - taught me something new and valuable about fundamental computer science topics.
+            <br>
+            <br>
+            You can find more of my work at my <a href="https://github.com/pres1017">GitHub!</a>
+        </p>
+    </div>
+    <br>
+    </div>
+
+
+    <footer id="homeFoot">
+        <table>
+            <tr>
+                <th><span class="tableData">Links</span></th>
+                <th><span class="tableData">Contact Information</span></th>
+            </tr>
+            <tr>
+                <td><a href="https://github.com/pres1017"><img src="github.png" alt="GitHub" class="footImg"></a></td>
+                <td><span class="tableData">pres1017@gmail.com</span></td>
+            </tr>
+            <tr>
+                <td><a href="https://www.linkedin.com/in/preston-malaer-17010b191"><img src="linkedin.png" alt=LinkedIn class="footImg"></a></td>
+                <td><span class="tableData">713-295-1677</span></td>
+            </tr>
+        </table>
+    </footer>
+
+    </div>
+</body>
+
+</html>
